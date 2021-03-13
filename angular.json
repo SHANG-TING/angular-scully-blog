@@ -1,4 +1,7 @@
 {
+  "cli": {
+    "analytics": false
+  },
   "version": 2,
   "projects": {
     "angular-scully-blog": "apps/angular-scully-blog",
