@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "projects": {
+    "angular-scully-blog": "apps/angular-scully-blog",
+    "angular-scully-blog-e2e": "apps/angular-scully-blog-e2e"
+  }
+}
