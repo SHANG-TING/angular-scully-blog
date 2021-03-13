@@ -1,10 +1,8 @@
 {
-  "cli": {
-    "analytics": false
-  },
   "version": 2,
   "projects": {
     "angular-scully-blog": "apps/angular-scully-blog",
-    "angular-scully-blog-e2e": "apps/angular-scully-blog-e2e"
+    "angular-scully-blog-e2e": "apps/angular-scully-blog-e2e",
+    "web-shell-ui-layout": "libs/web/shell/ui/layout"
   }
 }
