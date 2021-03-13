@@ -15,9 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@web/shell/feature": [
-        "libs/web/shell/feature/src/index.ts"
-      ],
+      "@web/home/feature": ["libs/web/home/feature/src/index.ts"],
+      "@web/shell/feature": ["libs/web/shell/feature/src/index.ts"],
       "@web/shell/ui/footer": ["libs/web/shell/ui/footer/src/index.ts"],
       "@web/shell/ui/header": ["libs/web/shell/ui/header/src/index.ts"],
       "@web/shell/ui/layout": ["libs/web/shell/ui/layout/src/index.ts"]
