@@ -6,6 +6,15 @@ export const webShellRoutes: Route[] = [
   {
     path: '',
     component: LayoutComponent,
-    children: []
-  }
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('@web/home/feature').then((m) => m.HomeModule),
+      },
+      {
+        path: '**',
+        redirectTo: '',
+      }
+    ],
+  },
 ];
