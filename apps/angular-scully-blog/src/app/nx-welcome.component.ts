@@ -1,9 +1,13 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ViewEncapsulation,
+} from '@angular/core';
 
 /* eslint-disable */
 
 @Component({
-  selector: 'angular-scully-blog-nx-welcome',
+  selector: 'asb-nx-welcome',
   template: `
     <!--
      * * * * * * * * * * * * * * * * * * * * * * * * * * * *

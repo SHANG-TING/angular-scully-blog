@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'angular-scully-blog-root',
+  selector: 'asb-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
