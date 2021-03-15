@@ -4,6 +4,7 @@
     "angular-scully-blog": "apps/angular-scully-blog",
     "angular-scully-blog-e2e": "apps/angular-scully-blog-e2e",
     "web-home-feature": "libs/web/home/feature",
+    "web-post-feature-list": "libs/web/post/feature/list",
     "web-post-feature-shell": "libs/web/post/feature/shell",
     "web-shell-feature": "libs/web/shell/feature",
     "web-shell-ui-footer": "libs/web/shell/ui/footer",
