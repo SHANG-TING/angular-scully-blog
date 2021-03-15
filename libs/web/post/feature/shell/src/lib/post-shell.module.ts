@@ -12,6 +12,11 @@ import { RouterModule } from '@angular/router';
         loadChildren: () =>
           import('@web/post/feature/list').then((m) => m.PostsModule),
       },
+      {
+        path: ':slug',
+        loadChildren: () =>
+          import('@web/post/feature/detail').then((m) => m.PostModule),
+      },
     ]),
   ],
 })

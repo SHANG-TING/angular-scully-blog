@@ -1,0 +1,8 @@
+@import './plugins';
+@import './themes';
+
+.toolbar {
+  .toolbar-item + .toolbar-item {
+    margin-left: 0.5rem;
+  }
+}

@@ -1,0 +1,9 @@
+@layer utilities {
+  .flex {
+    color: inherit;
+  }
+
+  .no-select {
+    user-select: none;
+  }
+}

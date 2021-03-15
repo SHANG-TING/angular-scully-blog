@@ -1,14 +1,12 @@
 ---
-title: CSS all Property
+title: 自己對 CSS all Property 的理解
 tags:
     - css
 description: 實作過程的紀錄 & 備忘錄
-image: https://i.imgur.com/YKqw5X5.png
 author: 謝尚庭 Neil
+date: 2020/06/26
 published: true
 ---
-
-# 自己對 CSS all Property 的理解
 
 ## unset
 
@@ -18,17 +16,17 @@ blockquote {
 }
 ```
 
-<iframe class="sample-code-frame" id="frame_ex1" width="200" height="125" src="https://yari-demos.prod.mdn.mozit.cloud/en-US/docs/Web/CSS/all/_samples_/ex1" loading="lazy"></iframe>
-
 `不使用`瀏覽器預設給的樣式，只有`部分繼承` Parent DOM Element 的樣式。
 
-我發現 display: inline 的話，這是因為 display 的預設值是 inline (Initial Value) 的關係，它是一個 inline element。
+<iframe class="sample-code-frame" id="frame_ex1"  height="125" src="https://yari-demos.prod.mdn.mozit.cloud/en-US/docs/Web/CSS/all/_sample_.allunset.html" loading="lazy"></iframe>
 
-還會發現 background-color: transparent 的話，這是因為 background-color 的預設值是 transparent (Initial Value)。
+首先 display、background-color 在瀏覽器是預設不會被繼承 (Inherited: no)，所以 blockquote 會吃到 display 的預設值 (inline) 以及 background-color 的預設值 (transparent)。
 
-以及發現 font-size: small 以及 color: blue 都是 Parent DOM Element 所提供的值 (Inherit Value)，這是因為 font-size、color 這2個 property 瀏覽器預設就是會被繼承的關係。
+> display、background-color 這 2 個 CSS Property，**不會**被繼承（這是瀏覽器預設的）
 
-> font-size、color 這 2 個 CSS Property，會被繼承（這是瀏覽器預設的）
+則 font-size、color 在瀏覽器預設是預設會被繼承 (Inherited: yes)，因此 blockquote 會吃到從 body 繼承下來 font-size 的繼承值 (small) 以及 color 的繼承值 (blue)。
+
+> font-size、color 這 2 個 CSS Property，**會**被繼承（這是瀏覽器預設的）
 
 ## initial
 
@@ -38,13 +36,16 @@ blockquote {
 }
 ```
 
-<iframe class="sample-code-frame" id="frame_ex2" width="200" height="125" src="https://yari-demos.prod.mdn.mozit.cloud/en-US/docs/Web/CSS/all/_samples_/ex2" loading="lazy"></iframe>
-
 `不使用`瀏覽器預設給的樣式，也`不繼承` Parent DOM Element 的樣式。
 
-我發現 display: inline 的話，這是因為 display 的預設值是 inline (Initial Value) 的關係，它會是一個 inline element。
+<iframe class="sample-code-frame" id="frame_ex2"  height="125" src="https://yari-demos.prod.mdn.mozit.cloud/en-US/docs/Web/CSS/all/_sample_.allinitial.html" loading="lazy"></iframe>
 
-以及發現 background-color: transparent、font-size: normal、color: black 都是吃瀏覽器所提供的預設值 (Initial Value)。
+總之 blockquote 的 display、background-color、font-size、color 都是吃瀏覽器所提供的預設值。
+
+- display: inline
+- background-color: transparent
+- font-size: normal
+- color: black
 
 ## inherit
 
@@ -54,15 +55,25 @@ blockquote {
 }
 ```
 
-<iframe class="sample-code-frame" id="frame_ex3" width="200" height="125" src="https://yari-demos.prod.mdn.mozit.cloud/en-US/docs/Web/CSS/all/_samples_/ex3" loading="lazy"></iframe>
-
 `不使用`瀏覽器預設給的樣式，並`繼承` Parent DOM Element 的樣式。
 
-我發現 display 為 block 的話，就是基於 Parent DOM Element 的關係，連同 background-color: #f0f0f0、font-size: small、color: blue 都是吃 Parent DOM Element 提供的值 (Inherit Value)。
+<iframe class="sample-code-frame" id="frame_ex3"  height="125" src="https://yari-demos.prod.mdn.mozit.cloud/en-US/docs/Web/CSS/all/_sample_.allinherit.html" loading="lazy"></iframe>
+
+
+總之 blockquote 的 display、background-color、font-size、color 都是繼承 body 來的繼承值。
+
+- display: block
+- background-color: #f0f0f0
+- font-size: small
+- color: blue
 
 ## 參考資料
 
 - <https://developer.mozilla.org/en-US/docs/Web/CSS/all>
+
+- [CSS display Property](https://www.w3schools.com/cssref/pr_class_display.asp)
+  - Default value 為 inline
+  - Inherited 為 no
 
 - [CSS background-color Property](https://www.w3schools.com/cssref/pr_background-color.asp)
   - Default value 為 transparent

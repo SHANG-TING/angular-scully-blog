@@ -29,6 +29,8 @@
     "@scullyio/scully-plugin-puppeteer": "^2.1.25",
     "@tailwindcss/forms": "^0.5.0",
     "@tailwindcss/typography": "^0.5.2",
+    "clipboard": "^2.0.10",
+    "prismjs": "^1.27.0",
     "rxjs": "~7.4.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.4"
