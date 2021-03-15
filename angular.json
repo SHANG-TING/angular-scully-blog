@@ -7,6 +7,7 @@
     "web-post-feature-detail": "libs/web/post/feature/detail",
     "web-post-feature-list": "libs/web/post/feature/list",
     "web-post-feature-shell": "libs/web/post/feature/shell",
+    "web-shared-data-access-models": "libs/web/shared/data-access/models",
     "web-shell-feature": "libs/web/shell/feature",
     "web-shell-ui-footer": "libs/web/shell/ui/footer",
     "web-shell-ui-header": "libs/web/shell/ui/header",
