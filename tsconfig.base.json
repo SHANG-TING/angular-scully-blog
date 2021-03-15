@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@web/home/feature": ["libs/web/home/feature/src/index.ts"],
+      "@web/post/feature/detail": ["libs/web/post/feature/detail/src/index.ts"],
       "@web/post/feature/list": ["libs/web/post/feature/list/src/index.ts"],
       "@web/post/feature/shell": ["libs/web/post/feature/shell/src/index.ts"],
       "@web/shell/feature": ["libs/web/shell/feature/src/index.ts"],
