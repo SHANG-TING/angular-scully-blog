@@ -9,6 +9,7 @@
     "web-post-feature-shell": "libs/web/post/feature/shell",
     "web-shared-data-access-blog-api": "libs/web/shared/data-access/blog-api",
     "web-shared-data-access-models": "libs/web/shared/data-access/models",
+    "web-shared-ui-icon": "libs/web/shared/ui/icon",
     "web-shell-feature": "libs/web/shell/feature",
     "web-shell-ui-footer": "libs/web/shell/ui/footer",
     "web-shell-ui-header": "libs/web/shell/ui/header",
