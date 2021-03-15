@@ -4,12 +4,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { WebShellModule } from '@web/shell/feature';
 
 import { AppComponent } from './app.component';
-import { NxWelcomeComponent } from './nx-welcome.component';
-import { ScullyLibModule } from '@scullyio/ng-lib';
 
 @NgModule({
-  declarations: [AppComponent, NxWelcomeComponent],
-  imports: [BrowserModule, WebShellModule, ScullyLibModule],
+  declarations: [AppComponent],
+  imports: [BrowserModule, WebShellModule],
   providers: [],
   bootstrap: [AppComponent],
 })
