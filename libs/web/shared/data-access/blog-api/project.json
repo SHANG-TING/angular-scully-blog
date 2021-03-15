@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/web/shared/data-access/blog-api",
+  "sourceRoot": "libs/web/shared/data-access/blog-api/src",
+  "prefix": "asb",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/web/shared/data-access/blog-api"],
+      "options": {
+        "jestConfig": "libs/web/shared/data-access/blog-api/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/web/shared/data-access/blog-api/src/**/*.ts",
+          "libs/web/shared/data-access/blog-api/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["type:data-access", "scope:web"]
+}

@@ -19,6 +19,9 @@
       "@web/post/feature/detail": ["libs/web/post/feature/detail/src/index.ts"],
       "@web/post/feature/list": ["libs/web/post/feature/list/src/index.ts"],
       "@web/post/feature/shell": ["libs/web/post/feature/shell/src/index.ts"],
+      "@web/shared/data-access/blog-api": [
+        "libs/web/shared/data-access/blog-api/src/index.ts"
+      ],
       "@web/shared/data-access/models": [
         "libs/web/shared/data-access/models/src/index.ts"
       ],
