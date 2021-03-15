@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/web/post/feature/shell",
+  "sourceRoot": "libs/web/post/feature/shell/src",
+  "prefix": "asb",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/web/post/feature/shell"],
+      "options": {
+        "jestConfig": "libs/web/post/feature/shell/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/web/post/feature/shell/src/**/*.ts",
+          "libs/web/post/feature/shell/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["type:feature", "scope:web"]
+}

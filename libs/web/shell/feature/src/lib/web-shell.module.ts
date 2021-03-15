@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
+import { ScullyLibModule } from '@scullyio/ng-lib';
 import { WebLayoutModule } from '@web/shell/ui/layout';
 
 import { webShellRoutes } from './web-shell.routes';
@@ -13,7 +14,11 @@ import { webShellRoutes } from './web-shell.routes';
     RouterModule.forRoot(webShellRoutes, {
       scrollPositionRestoration: 'enabled',
     }),
+    ScullyLibModule
   ],
-  exports: [RouterModule],
+  exports: [
+    RouterModule,
+    ScullyLibModule
+  ],
 })
 export class WebShellModule {}

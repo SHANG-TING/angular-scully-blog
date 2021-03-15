@@ -9,12 +9,18 @@ export const webShellRoutes: Route[] = [
     children: [
       {
         path: '',
-        loadChildren: () => import('@web/home/feature').then((m) => m.HomeModule),
+        loadChildren: () =>
+          import('@web/home/feature').then((m) => m.HomeModule),
+      },
+      {
+        path: 'posts',
+        loadChildren: () =>
+          import('@web/post/feature/shell').then((m) => m.PostShellModule),
       },
       {
         path: '**',
         redirectTo: '',
-      }
+      },
     ],
   },
 ];
