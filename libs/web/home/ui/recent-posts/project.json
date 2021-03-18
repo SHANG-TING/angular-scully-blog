@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/web/home/ui/recent-posts",
+  "sourceRoot": "libs/web/home/ui/recent-posts/src",
+  "prefix": "asb",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/web/home/ui/recent-posts"],
+      "options": {
+        "jestConfig": "libs/web/home/ui/recent-posts/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/web/home/ui/recent-posts/src/**/*.ts",
+          "libs/web/home/ui/recent-posts/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["type:ui", "scope:web"]
+}

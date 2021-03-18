@@ -4,6 +4,7 @@
     "angular-scully-blog": "apps/angular-scully-blog",
     "angular-scully-blog-e2e": "apps/angular-scully-blog-e2e",
     "web-home-feature": "libs/web/home/feature",
+    "web-home-ui-recent-posts": "libs/web/home/ui/recent-posts",
     "web-post-feature-detail": "libs/web/post/feature/detail",
     "web-post-feature-list": "libs/web/post/feature/list",
     "web-post-feature-shell": "libs/web/post/feature/shell",
