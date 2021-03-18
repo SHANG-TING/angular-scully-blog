@@ -8,11 +8,11 @@
         class="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0"
       >
         <dl>
-          <dt class="sr-only">Published on</dt>
+          <dt class="sr-only">發布於</dt>
           <dd
             class="text-base font-medium leading-6 text-gray-500 dark:text-gray-400"
           >
-            <time datetime="2021-08-07T15:32:14.000Z">{{
+            <time [attr.datetime]="post.date | date: 'full'">{{
               post.date | date
             }}</time>
           </dd>
@@ -31,7 +31,7 @@
                 <a
                   *ngFor="let tag of post.tags"
                   class="mr-3 text-sm font-medium uppercase text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-                  href="/tags/next-js"
+                  [attr.href]="'/tags/' + tag"
                   >{{ tag }}</a
                 >
               </div>

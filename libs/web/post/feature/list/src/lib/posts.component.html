@@ -1,43 +1,48 @@
-<div class="divide-y">
-  <div class="space-y-2 pt-6 pb-8 md:space-y-5">
-    <h1
-      class="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14"
+<div class="space-y-2 pt-6 pb-8 md:space-y-5 border-b border-b-white">
+  <h1
+    class="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14"
+  >
+    全部文章
+  </h1>
+  <div class="relative max-w-lg">
+    <input
+      aria-label="搜尋文章"
+      type="text"
+      placeholder="搜尋文章"
+      class="block w-full rounded-md border border-gray-300 bg-white px-4 py-2 text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-900 dark:bg-gray-800 dark:text-gray-100"
+      [ngModel]="searchText$ | async"
+      (ngModelChange)="searchText$.next($event)"
+    /><svg
+      class="absolute right-3 top-3 h-5 w-5 text-gray-400 dark:text-gray-300"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
     >
-      All Posts
-    </h1>
-    <div class="relative max-w-lg">
-      <input
-        aria-label="Search articles"
-        type="text"
-        placeholder="Search articles"
-        class="block w-full rounded-md border border-gray-300 bg-white px-4 py-2 text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-900 dark:bg-gray-800 dark:text-gray-100"
-      /><svg
-        class="absolute right-3 top-3 h-5 w-5 text-gray-400 dark:text-gray-300"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-        ></path>
-      </svg>
-    </div>
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+      ></path>
+    </svg>
   </div>
+</div>
+
+<ng-container *ngIf="paginatedPosts$ | async as paginatedPosts">
   <ul>
-    <li class="py-4">
+    <li *ngFor="let post of paginatedPosts.data" class="py-4">
       <article
         class="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0"
       >
         <dl>
-          <dt class="sr-only">Published on</dt>
+          <dt class="sr-only">發布於</dt>
           <dd
             class="text-base font-medium leading-6 text-gray-500 dark:text-gray-400"
           >
-            <time datetime="2021-08-07T15:32:14.000Z">August 7, 2021</time>
+            <time [attr.datetime]="post.date | date: 'full'">{{
+              post.date | date
+            }}</time>
           </dd>
         </dl>
         <div class="space-y-3 xl:col-span-3">
@@ -45,214 +50,48 @@
             <h3 class="text-2xl font-bold leading-8 tracking-tight">
               <a
                 class="text-gray-900 dark:text-gray-100"
-                href="/blog/new-features-in-v1"
-                >New features in v1</a
+                [attr.href]="post.route"
+                >{{ post.title }}</a
               >
             </h3>
             <div class="flex flex-wrap">
               <a
+                *ngFor="let tag of post.tags"
                 class="mr-3 text-sm font-medium uppercase text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-                href="/tags/next-js"
-                >next-js</a
-              ><a
-                class="mr-3 text-sm font-medium uppercase text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-                href="/tags/tailwind"
-                >tailwind</a
-              ><a
-                class="mr-3 text-sm font-medium uppercase text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-                href="/tags/guide"
-                >guide</a
+                [attr.href]="'/tags/' + tag"
+                >{{ tag }}</a
               >
             </div>
           </div>
           <div class="prose max-w-none text-gray-500 dark:text-gray-400">
-            An overview of the new features released in v1 - code block copy,
-            multiple authors, frontmatter layout and more
-          </div>
-        </div>
-      </article>
-    </li>
-    <li class="py-4">
-      <article
-        class="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0"
-      >
-        <dl>
-          <dt class="sr-only">Published on</dt>
-          <dd
-            class="text-base font-medium leading-6 text-gray-500 dark:text-gray-400"
-          >
-            <time datetime="2021-05-02T00:00:00.000Z">May 2, 2021</time>
-          </dd>
-        </dl>
-        <div class="space-y-3 xl:col-span-3">
-          <div>
-            <h3 class="text-2xl font-bold leading-8 tracking-tight">
-              <a
-                class="text-gray-900 dark:text-gray-100"
-                href="/blog/nested-route/introducing-multi-part-posts-with-nested-routing"
-                >Introducing Multi-part Posts with Nested Routing</a
-              >
-            </h3>
-            <div class="flex flex-wrap">
-              <a
-                class="mr-3 text-sm font-medium uppercase text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-                href="/tags/multi-author"
-                >multi-author</a
-              ><a
-                class="mr-3 text-sm font-medium uppercase text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-                href="/tags/next-js"
-                >next-js</a
-              ><a
-                class="mr-3 text-sm font-medium uppercase text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-                href="/tags/feature"
-                >feature</a
-              >
-            </div>
-          </div>
-          <div class="prose max-w-none text-gray-500 dark:text-gray-400">
-            The blog template supports posts in nested sub-folders. This can be
-            used to group posts of similar content e.g. a multi-part course.
-            This post is itself an example of a nested route!
-          </div>
-        </div>
-      </article>
-    </li>
-    <li class="py-4">
-      <article
-        class="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0"
-      >
-        <dl>
-          <dt class="sr-only">Published on</dt>
-          <dd
-            class="text-base font-medium leading-6 text-gray-500 dark:text-gray-400"
-          >
-            <time datetime="2021-01-12T00:00:00.000Z">January 12, 2021</time>
-          </dd>
-        </dl>
-        <div class="space-y-3 xl:col-span-3">
-          <div>
-            <h3 class="text-2xl font-bold leading-8 tracking-tight">
-              <a
-                class="text-gray-900 dark:text-gray-100"
-                href="/blog/introducing-tailwind-nextjs-starter-blog"
-                >Introducing Tailwind Nextjs Starter Blog</a
-              >
-            </h3>
-            <div class="flex flex-wrap">
-              <a
-                class="mr-3 text-sm font-medium uppercase text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-                href="/tags/next-js"
-                >next-js</a
-              ><a
-                class="mr-3 text-sm font-medium uppercase text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-                href="/tags/tailwind"
-                >tailwind</a
-              ><a
-                class="mr-3 text-sm font-medium uppercase text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-                href="/tags/guide"
-                >guide</a
-              >
-            </div>
-          </div>
-          <div class="prose max-w-none text-gray-500 dark:text-gray-400">
-            Looking for a performant, out of the box template, with all the best
-            in web technology to support your blogging needs? Checkout the
-            Tailwind Nextjs Starter Blog template.
-          </div>
-        </div>
-      </article>
-    </li>
-    <li class="py-4">
-      <article
-        class="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0"
-      >
-        <dl>
-          <dt class="sr-only">Published on</dt>
-          <dd
-            class="text-base font-medium leading-6 text-gray-500 dark:text-gray-400"
-          >
-            <time datetime="2020-12-21T00:00:00.000Z">December 21, 2020</time>
-          </dd>
-        </dl>
-        <div class="space-y-3 xl:col-span-3">
-          <div>
-            <h3 class="text-2xl font-bold leading-8 tracking-tight">
-              <a
-                class="text-gray-900 dark:text-gray-100"
-                href="/blog/deriving-ols-estimator"
-                >Deriving the OLS Estimator</a
-              >
-            </h3>
-            <div class="flex flex-wrap">
-              <a
-                class="mr-3 text-sm font-medium uppercase text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-                href="/tags/next-js"
-                >next-js</a
-              ><a
-                class="mr-3 text-sm font-medium uppercase text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-                href="/tags/math"
-                >math</a
-              ><a
-                class="mr-3 text-sm font-medium uppercase text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-                href="/tags/ols"
-                >ols</a
-              >
-            </div>
-          </div>
-          <div class="prose max-w-none text-gray-500 dark:text-gray-400">
-            How to derive the OLS Estimator with matrix notation and a tour of
-            math typesetting using markdown with the help of KaTeX.
-          </div>
-        </div>
-      </article>
-    </li>
-    <li class="py-4">
-      <article
-        class="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0"
-      >
-        <dl>
-          <dt class="sr-only">Published on</dt>
-          <dd
-            class="text-base font-medium leading-6 text-gray-500 dark:text-gray-400"
-          >
-            <time datetime="2020-11-11T00:00:00.000Z">November 11, 2020</time>
-          </dd>
-        </dl>
-        <div class="space-y-3 xl:col-span-3">
-          <div>
-            <h3 class="text-2xl font-bold leading-8 tracking-tight">
-              <a
-                class="text-gray-900 dark:text-gray-100"
-                href="/blog/guide-to-using-images-in-nextjs"
-                >Images in Next.js</a
-              >
-            </h3>
-            <div class="flex flex-wrap">
-              <a
-                class="mr-3 text-sm font-medium uppercase text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-                href="/tags/next-js"
-                >next-js</a
-              ><a
-                class="mr-3 text-sm font-medium uppercase text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-                href="/tags/guide"
-                >guide</a
-              >
-            </div>
-          </div>
-          <div class="prose max-w-none text-gray-500 dark:text-gray-400">
-            In this article we introduce adding images in the tailwind starter
-            blog and the benefits and limitations of the next/image component.
+            {{ post.description }}
           </div>
         </div>
       </article>
     </li>
   </ul>
-</div>
-<div class="space-y-2 pt-6 pb-8 md:space-y-5">
-  <nav class="flex justify-between">
-    <button rel="previous" class="cursor-auto disabled:opacity-50" disabled="">
-      Previous</button
-    ><span>1 of 2</span
-    ><a href="/blog/page/2"><button rel="next">Next</button></a>
-  </nav>
-</div>
+  <div class="space-y-2 pt-6 pb-8 md:space-y-5">
+    <nav class="flex justify-between">
+      <button
+        rel="previous"
+        class="disabled:cursor-auto disabled:opacity-50"
+        (click)="prevPage()"
+        [disabled]="paginatedPosts.pageIndex === 0"
+      >
+        上一頁
+      </button>
+      <span>
+        目前在第 {{ paginatedPosts.pageIndex + 1 }} 頁，總共有
+        {{ paginatedPosts.pageCount }} 頁
+      </span>
+      <button
+        rel="next"
+        class="disabled:cursor-auto disabled:opacity-50"
+        (click)="nextPage()"
+        [disabled]="paginatedPosts.pageIndex + 1 === paginatedPosts.pageCount"
+      >
+        下一頁
+      </button>
+    </nav>
+  </div>
+</ng-container>

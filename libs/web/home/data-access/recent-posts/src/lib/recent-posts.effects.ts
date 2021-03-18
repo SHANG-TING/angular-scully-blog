@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 
-import { orderBy } from 'lodash-es';
 import { of } from 'rxjs';
 import {
   catchError,
@@ -28,8 +27,6 @@ export class RecentPostsEffects {
       ofType(loadRecentPosts),
       switchMap(() =>
         this.postApi.getList().pipe(
-          map((posts) => posts.filter((post) => post.published)),
-          map((posts) => orderBy(posts, ['createdAt'], ['desc'])),
           map((posts) => posts.slice(0, 5)),
           map((recentPosts) => loadRecentPostsSuccess({ recentPosts })),
           catchError((error) => of(loadRecentPostsFailure({ error })))

@@ -1,7 +1,7 @@
 <div class="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0">
   <div class="fixed right-8 bottom-8 hidden flex-col gap-3 md:hidden"></div>
 
-  <article *ngIf="currentPost$ | async as post">
+  <article *ngIf="post$ | async as post">
     <div>
       <header>
         <div
@@ -9,11 +9,13 @@
         >
           <dl>
             <div>
-              <dt class="sr-only">Published on</dt>
+              <dt class="sr-only">發布於</dt>
               <dd
                 class="text-base font-medium leading-6 text-gray-500 dark:text-gray-400"
               >
-                <time>{{ post['date'] | date }}</time>
+                <time [attr.datetime]="post.date | date: 'full'">{{
+                  post.date | date
+                }}</time>
               </dd>
             </div>
           </dl>

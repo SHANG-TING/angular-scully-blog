@@ -2,11 +2,9 @@ import {
   AfterViewChecked,
   ChangeDetectionStrategy,
   Component,
-  OnInit,
 } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 
-import { ScullyRoutesService } from '@scullyio/ng-lib';
+import { PostStore } from '@web/post/data-access';
 
 import { HighlightService } from './highlight.service';
 
@@ -14,21 +12,16 @@ import { HighlightService } from './highlight.service';
   selector: 'asb-post',
   templateUrl: './post.component.html',
   styleUrls: ['./post.component.scss'],
+  providers: [PostStore],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PostComponent implements OnInit, AfterViewChecked {
-  currentPost$ = this.scullyRouteService.getCurrent();
+export class PostComponent implements AfterViewChecked {
+  post$ = this.store.post$;
 
   constructor(
-    private route: ActivatedRoute,
     private highlightService: HighlightService,
-    private scullyRouteService: ScullyRoutesService
+    private store: PostStore
   ) {}
-
-  ngOnInit(): void {
-    this.route.paramMap.subscribe(console.log);
-    this.scullyRouteService.getCurrent().subscribe(console.log);
-  }
 
   ngAfterViewChecked(): void {
     this.highlightService.highlightAll();
