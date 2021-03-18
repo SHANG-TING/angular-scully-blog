@@ -90,5 +90,5 @@
       }
     }
   },
-  "tags": ["type:app", "scope:web"]
+  "tags": ["type:app", "scope:angular-scully-blog"]
 }
