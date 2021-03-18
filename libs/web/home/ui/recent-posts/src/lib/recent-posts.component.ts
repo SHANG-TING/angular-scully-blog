@@ -1,19 +1,24 @@
 import {
-  Component,
-  OnInit,
-  ViewEncapsulation,
   ChangeDetectionStrategy,
+  Component,
 } from '@angular/core';
+
+import {
+  select,
+  Store,
+} from '@ngrx/store';
+import { getRecentPosts } from '@web/home/data-access/recent-posts';
 
 @Component({
   selector: 'asb-recent-posts',
   templateUrl: './recent-posts.component.html',
   styleUrls: ['./recent-posts.component.scss'],
-  encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class RecentPostsComponent implements OnInit {
-  constructor() {}
+export class RecentPostsComponent {
+  recentPosts$ = this.store.pipe(
+    select(getRecentPosts)
+  );
 
-  ngOnInit(): void {}
+  constructor(private store: Store) {}
 }

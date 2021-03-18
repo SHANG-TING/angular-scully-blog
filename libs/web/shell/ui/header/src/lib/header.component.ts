@@ -14,7 +14,7 @@ import {
   encapsulation: ViewEncapsulation.None,
   host: {
     class:
-      'py-2 md:py-8 sticky top-n-1 z-50 transition-all backdrop mx-auto border-b border-b-0 border-slate-900/10 dark:border-slate-300/10 mb-16 w-full',
+      'block border-b border-slate-900/10 dark:border-slate-300/10 mx-auto w-full',
   },
 })
 export class HeaderComponent implements OnInit {

@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/web/home/data-access/recent-posts",
+  "sourceRoot": "libs/web/home/data-access/recent-posts/src",
+  "prefix": "asb",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/web/home/data-access/recent-posts"],
+      "options": {
+        "jestConfig": "libs/web/home/data-access/recent-posts/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/web/home/data-access/recent-posts/src/**/*.ts",
+          "libs/web/home/data-access/recent-posts/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["type:data-access", "scope:web"]
+}

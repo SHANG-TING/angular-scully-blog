@@ -54,13 +54,11 @@ const neil = {
 };
 
 // this === neil
-neil.say('Dr.D is god!');
+neil.say('use window.console.log');
 
 // this === window
-(0, neil.say)('Dr.D is god!');
+(neil, neil.say)('use window.alert');
 ```
-
-![image](https://scontent.ftpe8-4.fna.fbcdn.net/v/t1.0-9/161408850_3727975163964467_2951647070574817289_n.jpg?_nc_cat=104&ccb=1-3&_nc_sid=dbeb18&_nc_ohc=hRxmfrPtg-4AX-Zk7jm&_nc_ht=scontent.ftpe8-4.fna&oh=2d9636ea8eb0fe72dad035fd10ab731e&oe=607EAB1C)
 
 > 建議還是使用 `function.call()/apply()` 來改變 this 的指向
 

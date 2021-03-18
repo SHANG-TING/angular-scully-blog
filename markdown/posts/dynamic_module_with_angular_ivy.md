@@ -125,7 +125,7 @@ export class AppComponent implements AfterViewInit {
 }
 ```
 
-> NgModuleFactoryLoader 已棄用，不建議使用 loadChildren 的 string 形式，NgModuleFactoryLoader 是其實現的一部分。
+> SystemJsNgModuleLoader 已棄用，不建議使用 loadChildren 的 string 形式，SystemJsNgModuleLoader 是其實現的一部分。
 
 ## 參考資料
 
