@@ -1,7 +1,4 @@
 {
-  "cli": {
-    "analytics": false
-  },
   "version": 2,
   "projects": {
     "angular-scully-blog": "apps/angular-scully-blog",
@@ -13,6 +10,7 @@
     "web-post-feature-detail": "libs/web/post/feature/detail",
     "web-post-feature-list": "libs/web/post/feature/list",
     "web-post-feature-shell": "libs/web/post/feature/shell",
+    "web-settings-data-access": "libs/web/settings/data-access",
     "web-shared-data-access-blog-api": "libs/web/shared/data-access/blog-api",
     "web-shared-data-access-models": "libs/web/shared/data-access/models",
     "web-shared-ui-icon": "libs/web/shared/ui/icon",

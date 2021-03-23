@@ -6,6 +6,17 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 
+import { BehaviorSubject, take } from 'rxjs';
+
+import { Store } from '@ngrx/store';
+import {
+  actionSettingsChangeTheme,
+  selectEffectiveTheme,
+  selectSettingsStickyHeader,
+} from '@web/settings/data-access';
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
+
+@UntilDestroy()
 @Component({
   selector: 'asb-header',
   templateUrl: './header.component.html',
@@ -13,46 +24,47 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
   host: {
-    class:
-      'block border-b border-slate-900/10 dark:border-slate-300/10 mx-auto w-full',
+    class: 'block h-[72px]',
   },
 })
 export class HeaderComponent implements OnInit {
-  get theme() {
-    return this._theme;
+  menuShow$ = new BehaviorSubject(false);
+  stickyHeader$ = this.store.select(selectSettingsStickyHeader);
+  theme$ = this.store.select(selectEffectiveTheme);
+
+  navLinks = [
+    { href: '/posts', title: '文章' },
+    { href: '/tags', title: '標籤' },
+    { href: '/projects', title: '作品' },
+    { href: '/about', title: '關於我' },
+  ]
+
+  constructor(private store: Store, private renderer: Renderer2) {}
+
+  ngOnInit() {
+    this.menuShow$
+      .asObservable()
+      .pipe(untilDestroyed(this))
+      .subscribe((menuShow) => {
+        if (menuShow) {
+          this.renderer.addClass(document.body, 'overflow-hidden');
+        } else {
+          this.renderer.removeClass(document.body, 'overflow-hidden');
+        }
+      });
   }
-  set theme(value) {
-    this._theme = value;
-    if (this._theme === 'dark') {
-      this._renderer.addClass(document.body.parentElement, 'dark');
-      this._renderer.setStyle(
-        document.body.parentElement,
-        'color-scheme',
-        'dark'
+
+  toggleMenu() {
+    this.menuShow$.next(!this.menuShow$.value);
+  }
+
+  toggleTheme() {
+    this.theme$.pipe(take(1)).subscribe((currTheme) => {
+      this.store.dispatch(
+        actionSettingsChangeTheme({
+          theme: currTheme === 'dark' ? 'light' : 'dark',
+        })
       );
-    } else {
-      this._renderer.removeClass(document.body.parentElement, 'dark');
-      this._renderer.removeStyle(document.body.parentElement, 'color-scheme');
-    }
-  }
-  private _theme: 'light' | 'dark' = 'light';
-
-  constructor(private _renderer: Renderer2) {}
-
-  ngOnInit(): void {
-    this._detectPrefersColorScheme();
-  }
-
-  private _detectPrefersColorScheme() {
-    // Detect if prefers-color-scheme is supported
-    if (window.matchMedia('(prefers-color-scheme)').media !== 'not all') {
-      // Set colorScheme to Dark if prefers-color-scheme is dark. Otherwise, set it to Light.
-      this.theme = window.matchMedia('(prefers-color-scheme: dark)').matches
-        ? 'dark'
-        : 'light';
-    } else {
-      // If the browser does not support prefers-color-scheme, set the default to dark.
-      this.theme = 'dark';
-    }
+    });
   }
 }

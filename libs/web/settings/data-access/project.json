@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/web/settings/data-access",
+  "sourceRoot": "libs/web/settings/data-access/src",
+  "prefix": "asb",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/web/settings/data-access"],
+      "options": {
+        "jestConfig": "libs/web/settings/data-access/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/web/settings/data-access/src/**/*.ts",
+          "libs/web/settings/data-access/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["type:data-access", "scope:web"]
+}
