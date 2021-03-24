@@ -17,6 +17,7 @@
     "web-shell-feature": "libs/web/shell/feature",
     "web-shell-ui-footer": "libs/web/shell/ui/footer",
     "web-shell-ui-header": "libs/web/shell/ui/header",
-    "web-shell-ui-layout": "libs/web/shell/ui/layout"
+    "web-shell-ui-layout": "libs/web/shell/ui/layout",
+    "web-tags-feature": "libs/web/tags/feature"
   }
 }
