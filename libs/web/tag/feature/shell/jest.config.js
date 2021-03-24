@@ -1,6 +1,6 @@
 module.exports = {
-  displayName: 'web-tags-feature',
-  preset: '../../../../jest.preset.js',
+  displayName: 'web-tag-feature-shell',
+  preset: '../../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
     'ts-jest': {
@@ -8,7 +8,7 @@ module.exports = {
       stringifyContentPathRegex: '\\.(html|svg)$',
     },
   },
-  coverageDirectory: '../../../../coverage/libs/web/tags/feature',
+  coverageDirectory: '../../../../../coverage/libs/web/tag/feature/shell',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': 'jest-preset-angular',
   },

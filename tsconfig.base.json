@@ -40,7 +40,10 @@
       "@web/shell/ui/footer": ["libs/web/shell/ui/footer/src/index.ts"],
       "@web/shell/ui/header": ["libs/web/shell/ui/header/src/index.ts"],
       "@web/shell/ui/layout": ["libs/web/shell/ui/layout/src/index.ts"],
-      "@web/tags/feature": ["libs/web/tags/feature/src/index.ts"]
+      "@web/tag/data-access": ["libs/web/tag/data-access/src/index.ts"],
+      "@web/tag/feature/detail": ["libs/web/tag/feature/detail/src/index.ts"],
+      "@web/tag/feature/list": ["libs/web/tag/feature/list/src/index.ts"],
+      "@web/tag/feature/shell": ["libs/web/tag/feature/shell/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

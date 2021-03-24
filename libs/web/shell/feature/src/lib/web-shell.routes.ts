@@ -9,13 +9,18 @@ export const webShellRoutes: Route[] = [
     children: [
       {
         path: '',
-        loadChildren: () =>
-          import('@web/home/feature').then((m) => m.HomeModule),
+        loadChildren: async () =>
+          (await import('@web/home/feature')).HomeModule,
       },
       {
         path: 'posts',
-        loadChildren: () =>
-          import('@web/post/feature/shell').then((m) => m.PostShellModule),
+        loadChildren: async () =>
+          (await import('@web/post/feature/shell')).PostShellModule,
+      },
+      {
+        path: 'tags',
+        loadChildren: async () =>
+          (await import('@web/tag/feature/shell')).TagShellModule,
       },
       {
         path: '**',

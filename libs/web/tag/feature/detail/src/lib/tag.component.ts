@@ -1,34 +1,31 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  OnInit,
-  ViewEncapsulation,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
 import { BehaviorSubject, combineLatest } from 'rxjs';
 import { debounceTime, distinctUntilChanged, skip } from 'rxjs/operators';
 
-import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
-import { Store } from '@ngrx/store';
-import { loadPosts, selectPaginatedPosts } from '@web/post/data-access';
 import { PaginatedList } from '@web/shared/data-access/models';
+import { TagStore } from '@web/tag/data-access';
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 
 @UntilDestroy()
 @Component({
-  selector: 'asb-posts',
-  templateUrl: './posts.component.html',
+  selector: 'asb-tag',
+  templateUrl: './tag.component.html',
+  styleUrls: ['./tag.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.None,
+  providers: [TagStore],
 })
-export class PostsComponent implements OnInit {
+export class TagComponent implements OnInit {
   searchText$ = new BehaviorSubject<string>('');
   page$ = new BehaviorSubject<Pick<PaginatedList, 'pageIndex' | 'pageSize'>>({
     pageIndex: 0,
     pageSize: 5,
   });
-  paginatedPosts$ = this.store.select(selectPaginatedPosts);
 
-  constructor(private store: Store) {}
+  tagName$ = this.store.tagNameParams$;
+  paginatedPosts$ = this.store.paginatedPosts$;
+
+  constructor(private store: TagStore) {}
 
   ngOnInit(): void {
     this.searchText$.pipe(skip(1), untilDestroyed(this)).subscribe(() => {
@@ -47,7 +44,7 @@ export class PostsComponent implements OnInit {
         untilDestroyed(this)
       )
       .subscribe(([keyword, { pageIndex, pageSize }]) => {
-        this.store.dispatch(loadPosts({ keyword, pageIndex, pageSize }));
+        this.store.loadPosts({ keyword, pageIndex, pageSize });
       });
   }
 

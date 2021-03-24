@@ -1,14 +1,14 @@
 {
   "projectType": "library",
-  "root": "libs/web/tags/feature",
-  "sourceRoot": "libs/web/tags/feature/src",
+  "root": "libs/web/tag/feature/list",
+  "sourceRoot": "libs/web/tag/feature/list/src",
   "prefix": "asb",
   "targets": {
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/web/tags/feature"],
+      "outputs": ["coverage/libs/web/tag/feature/list"],
       "options": {
-        "jestConfig": "libs/web/tags/feature/jest.config.js",
+        "jestConfig": "libs/web/tag/feature/list/jest.config.js",
         "passWithNoTests": true
       }
     },
@@ -16,8 +16,8 @@
       "executor": "@nrwl/linter:eslint",
       "options": {
         "lintFilePatterns": [
-          "libs/web/tags/feature/src/**/*.ts",
-          "libs/web/tags/feature/src/**/*.html"
+          "libs/web/tag/feature/list/src/**/*.ts",
+          "libs/web/tag/feature/list/src/**/*.html"
         ]
       }
     }
