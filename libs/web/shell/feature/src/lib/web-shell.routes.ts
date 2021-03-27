@@ -28,6 +28,11 @@ export const webShellRoutes: Route[] = [
           (await import('@web/about/feature')).AboutModule,
       },
       {
+        path: 'projects',
+        loadChildren: async () =>
+          (await import('@web/projects/feature')).ProjectsModule,
+      },
+      {
         path: '**',
         redirectTo: '',
       },

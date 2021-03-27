@@ -27,6 +27,7 @@
       "@web/post/feature/detail": ["libs/web/post/feature/detail/src/index.ts"],
       "@web/post/feature/list": ["libs/web/post/feature/list/src/index.ts"],
       "@web/post/feature/shell": ["libs/web/post/feature/shell/src/index.ts"],
+      "@web/projects/feature": ["libs/web/projects/feature/src/index.ts"],
       "@web/settings/data-access": [
         "libs/web/settings/data-access/src/index.ts"
       ],

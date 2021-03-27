@@ -1,0 +1,168 @@
+<div class="divide-y divide-gray-200 dark:divide-gray-700">
+  <div class="pt-6 pb-8">
+    <h1
+      class="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14"
+    >
+      專案
+    </h1>
+  </div>
+
+  <div class="pt-3 pb-4">
+    <h2
+      class="text-2xl font-extrabold leading-6 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-7 md:text-3xl md:leading-11 !border-b-0"
+    >
+      🔥 近期有貢獻的專案
+    </h2>
+  </div>
+
+  <div class="container py-12">
+    <div class="-m-4 flex flex-wrap">
+      <div
+        *ngFor="let project of recentProjects"
+        class="md p-4 md:w-1/2"
+        style="max-width: 544px"
+      >
+        <div
+          class="h-full overflow-hidden rounded-md border-2 border-gray-200 border-opacity-60 dark:border-gray-700"
+        >
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            [attr.href]="project.url"
+            [attr.aria-label]="'Link to' + project.name"
+          >
+            <img [src]="project.image" alt="Partytown" />
+          </a>
+          <div class="p-6">
+            <h2 class="mb-3 text-2xl font-bold leading-8 tracking-tight">
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                [attr.href]="project.url"
+                [attr.aria-label]="'Link to' + project.name"
+                >{{ project.name }}</a
+              >
+            </h2>
+            <p class="prose mb-3 max-w-none text-gray-500 dark:text-gray-400">
+              {{ project.description }}
+            </p>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              [attr.href]="project.url"
+              [attr.aria-label]="'Link to' + project.name"
+              class="text-base font-medium leading-6 text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+              >閱讀更多 →</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pt-3 pb-4">
+    <h2
+      class="text-2xl font-extrabold leading-6 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-7 md:text-3xl md:leading-11 !border-b-0"
+    >
+      👀 維護中的專案
+    </h2>
+  </div>
+
+  <div class="container py-12">
+    <div class="-m-4 flex flex-wrap">
+      <div
+        *ngFor="let project of maintainedProjects"
+        class="md p-4 md:w-1/2"
+        style="max-width: 544px"
+      >
+        <div
+          class="h-full overflow-hidden rounded-md border-2 border-gray-200 border-opacity-60 dark:border-gray-700"
+        >
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            [attr.href]="project.url"
+            [attr.aria-label]="'Link to' + project.name"
+          >
+            <img [src]="project.image" alt="Partytown" />
+          </a>
+          <div class="p-6">
+            <h2 class="mb-3 text-2xl font-bold leading-8 tracking-tight">
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                [attr.href]="project.url"
+                [attr.aria-label]="'Link to' + project.name"
+                >{{ project.name }}</a
+              >
+            </h2>
+            <p class="prose mb-3 max-w-none text-gray-500 dark:text-gray-400">
+              {{ project.description }}
+            </p>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              [attr.href]="project.url"
+              [attr.aria-label]="'Link to' + project.name"
+              class="text-base font-medium leading-6 text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+              >閱讀更多 →</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pt-3 pb-4">
+    <h2
+      class="text-2xl font-extrabold leading-6 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-7 md:text-3xl md:leading-11 !border-b-0"
+    >
+      ❌已棄用的專案
+    </h2>
+  </div>
+
+  <div class="container py-12">
+    <div class="-m-4 flex flex-wrap">
+      <div
+        *ngFor="let project of outdatedProjects"
+        class="md p-4 md:w-1/2"
+        style="max-width: 544px"
+      >
+        <div
+          class="h-full overflow-hidden rounded-md border-2 border-gray-200 border-opacity-60 dark:border-gray-700"
+        >
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            [attr.href]="project.url"
+            [attr.aria-label]="'Link to' + project.name"
+          >
+            <img [src]="project.image" alt="Partytown" />
+          </a>
+          <div class="p-6">
+            <h2 class="mb-3 text-2xl font-bold leading-8 tracking-tight">
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                [attr.href]="project.url"
+                [attr.aria-label]="'Link to' + project.name"
+                >{{ project.name }}</a
+              >
+            </h2>
+            <p class="prose mb-3 max-w-none text-gray-500 dark:text-gray-400">
+              {{ project.description }}
+            </p>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              [attr.href]="project.url"
+              [attr.aria-label]="'Link to' + project.name"
+              class="text-base font-medium leading-6 text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+              >閱讀更多 →</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
