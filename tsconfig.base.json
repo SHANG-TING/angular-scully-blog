@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@web/about/feature": ["libs/web/about/feature/src/index.ts"],
       "@web/home/data-access/recent-posts": [
         "libs/web/home/data-access/recent-posts/src/index.ts"
       ],

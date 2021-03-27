@@ -23,6 +23,11 @@ export const webShellRoutes: Route[] = [
           (await import('@web/tag/feature/shell')).TagShellModule,
       },
       {
+        path: 'about',
+        loadChildren: async () =>
+          (await import('@web/about/feature')).AboutModule,
+      },
+      {
         path: '**',
         redirectTo: '',
       },

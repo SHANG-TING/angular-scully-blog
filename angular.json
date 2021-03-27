@@ -3,6 +3,7 @@
   "projects": {
     "angular-scully-blog": "apps/angular-scully-blog",
     "angular-scully-blog-e2e": "apps/angular-scully-blog-e2e",
+    "web-about-feature": "libs/web/about/feature",
     "web-home-data-access-recent-posts": "libs/web/home/data-access/recent-posts",
     "web-home-feature": "libs/web/home/feature",
     "web-home-ui-recent-posts": "libs/web/home/ui/recent-posts",
