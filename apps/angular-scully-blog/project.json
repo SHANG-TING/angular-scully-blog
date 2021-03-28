@@ -6,7 +6,9 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/angular-scully-blog",
         "index": "apps/angular-scully-blog/src/index.html",
@@ -16,9 +18,12 @@
         "inlineStyleLanguage": "scss",
         "assets": [
           "apps/angular-scully-blog/src/favicon.ico",
-          "apps/angular-scully-blog/src/assets"
+          "apps/angular-scully-blog/src/assets",
+          "apps/angular-scully-blog/src/CNAME"
         ],
-        "styles": ["apps/angular-scully-blog/src/styles.scss"],
+        "styles": [
+          "apps/angular-scully-blog/src/styles.scss"
+        ],
         "scripts": []
       },
       "configurations": {
@@ -83,12 +88,17 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/angular-scully-blog"],
+      "outputs": [
+        "coverage/apps/angular-scully-blog"
+      ],
       "options": {
         "jestConfig": "apps/angular-scully-blog/jest.config.js",
         "passWithNoTests": true
       }
     }
   },
-  "tags": ["type:app", "scope:angular-scully-blog"]
+  "tags": [
+    "type:app",
+    "scope:angular-scully-blog"
+  ]
 }
