@@ -1995,7 +1995,7 @@
     "@angular-devkit/schematics" "13.3.0"
     jsonc-parser "3.0.0"
 
-"@scullyio/init@^2.1.25":
+"@scullyio/init@2.1.28":
   version "2.1.28"
   resolved "https://registry.yarnpkg.com/@scullyio/init/-/init-2.1.28.tgz#ce3a8435ee71941adb1dbfc37a62ec5e1efce6bf"
   integrity sha512-PwPaOE7vjt/bqjaUztg+XrhR2SlivXVstROBcslOi9/w1OZeh/CvTWbRiA0cDSyyOv75acA9NAbueY9LjHl7oA==
@@ -2025,7 +2025,7 @@
     ws "^8.5.0"
     zone.js "0.11.4"
 
-"@scullyio/ng-lib@2.1.28", "@scullyio/ng-lib@^2.1.25":
+"@scullyio/ng-lib@2.1.28":
   version "2.1.28"
   resolved "https://registry.yarnpkg.com/@scullyio/ng-lib/-/ng-lib-2.1.28.tgz#a4faaf5ea3c55d995f7b3967f95b75b3af8230fe"
   integrity sha512-+zU+AnXZ9MBve6yhcOmxVCV3Gu/vFoO4kV52aP4B6ttV4c/xcXZsspZuXW6o35rYqkZH17ziwCNna+ZhEuLkGA==
@@ -2033,7 +2033,7 @@
     rxjs "^7.0.0"
     tslib "^2.2.0"
 
-"@scullyio/scully-plugin-puppeteer@^2.1.25":
+"@scullyio/scully-plugin-puppeteer@2.1.28":
   version "2.1.28"
   resolved "https://registry.yarnpkg.com/@scullyio/scully-plugin-puppeteer/-/scully-plugin-puppeteer-2.1.28.tgz#7f33eceaef491c53c1a8549440e470becd534c8d"
   integrity sha512-GXoCv6NjDEe7yyxKQA7eRGmlGXlP/XHxQWLezC2SFHRPYbioD5267D/UGDWrdXafO8qsy2xUAI9qJekVxSTXqQ==
@@ -2057,7 +2057,7 @@
     ws "^8.5.0"
     zone.js "0.11.4"
 
-"@scullyio/scully@2.1.28", "@scullyio/scully@^2.1.25":
+"@scullyio/scully@2.1.28":
   version "2.1.28"
   resolved "https://registry.yarnpkg.com/@scullyio/scully/-/scully-2.1.28.tgz#fccd8d90ee496db8c912dcd4e96a67986f420d3f"
   integrity sha512-1rEuVdaIFuPvVHbnOl6E+xSHAUuNNZZ5pelqq1Yb1nI6BCfKNcjcg+/08DXvG5Np+HOW4b1vfZET2PgbOoyuvg==
