@@ -33,9 +33,12 @@ export class PostApiService {
   }
 
   getPublishedList() {
-    return this._scullyRoutesService.available$.pipe(
+    const posts$ = this._scullyRoutesService
+      .available$ as unknown as Observable<PostsResponse>;
+
+    return posts$.pipe(
       take(1),
       map((posts) => posts.filter((post) => post.published))
-    ) as Observable<PostsResponse>;
+    );
   }
 }
