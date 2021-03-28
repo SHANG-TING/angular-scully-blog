@@ -1,105 +1,68 @@
+# Neil's Notepad
 
+這是使用 Angular 13、Nx Workspace、ngrx、TailwindCSS 和 Scully (SSG) 所建立的部落格網站。
 
-# AngularScullyBlog
+## 運行中的部落格網站
 
-This project was generated using [Nx](https://nx.dev).
+查看部落格網站 -> <https://blog.neilxie.net>
 
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
+## 使用技術
 
-🔎 **Smart, Fast and Extensible Build System**
+- [Angular 12][angular]
+- [Nx Workspace][nx]
+- [ngneat][] 主要使用 `ngneat/svg-icon` 和 `ngneat/until-destroy`
+- [ngrx][ngrx] and [ngrx/component-store][component-store]
+- [TailwindCSS][tailwind]
+- [Scully][scully] 這是一套基於 Angular 的 Server Side Generator
 
-## Quick Start & Documentation
+[angular]: https://angular.io/
+[nx]: https://nx.dev/
+[ngrx]: https://ngrx.io/
+[component-store]: https://ngrx.io/guide/component-store
+[tailwind]: https://tailwindcss.com/
+[ngneat]: https://github.com/ngneat
+[scully]: https://scully.io/
 
-[Nx Documentation](https://nx.dev/angular)
+## 專案架構
 
-[10-minute video showing all Nx features](https://nx.dev/getting-started/intro)
+```
+.
+└── root
+    ├── apps
+    │   └── angular-scully-blog
+    └── libs
+        └── web (dir)
+            ├── shell (dir)
+            │   ├── feature (angular:lib) - for configure any forRoot modules
+            │   └── ui
+            │       └── layout (angular:lib)
+            ├── settings (dir)
+            │   └── data-access (workspace:lib)
+            ├── post (dir)
+            │   ├── data-access (angular:lib, service, state management)
+            │   └── features
+            │       ├── list (angular:lib PostsComponent)
+            │       └── detail (angular:lib PostComponent)
+            ├── tag (dir)
+            │   ├── data-access (angular:lib, service, state management)
+            │   └── features
+            │       ├── list (angular:lib TagsComponent)
+            │       └── detail (angular:lib TagComponent)
+            ├── projects (dir)
+            │   └── feature
+            ├── about (dir)
+            │   └── feature
+            ├── home (dir)
+            │   ├── data-access (angular:lib)
+            │   ├── feature (angular:lib)
+            │   └── ui (dir)
+            │       └── recent-posts (angular:lib, SCAM for Component)
+            └── shared (dir)
+                ├── data-access (angular:lib, API call, Service or State management to share across the Client app)
+                └── ui (dir)
+```
 
-[Interactive Tutorial](https://nx.dev/tutorial/01-create-application)
+## 使用的 Github Actions
 
-## Adding capabilities to your workspace
-
-Nx supports many plugins which add capabilities for developing different types of applications and different tools.
-
-These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
-
-Below are our core plugins:
-
-- [Angular](https://angular.io)
-  - `ng add @nrwl/angular`
-- [React](https://reactjs.org)
-  - `ng add @nrwl/react`
-- Web (no framework frontends)
-  - `ng add @nrwl/web`
-- [Nest](https://nestjs.com)
-  - `ng add @nrwl/nest`
-- [Express](https://expressjs.com)
-  - `ng add @nrwl/express`
-- [Node](https://nodejs.org)
-  - `ng add @nrwl/node`
-
-There are also many [community plugins](https://nx.dev/community) you could add.
-
-## Generate an application
-
-Run `ng g @nrwl/angular:app my-app` to generate an application.
-
-> You can use any of the plugins above to generate applications as well.
-
-When using Nx, you can create multiple applications and libraries in the same workspace.
-
-## Generate a library
-
-Run `ng g @nrwl/angular:lib my-lib` to generate a library.
-
-> You can also use any of the plugins above to generate libraries as well.
-
-Libraries are shareable across libraries and applications. They can be imported from `@angular-scully-blog/mylib`.
-
-## Development server
-
-Run `ng serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng g component my-component --project=my-app` to generate a new component.
-
-## Build
-
-Run `ng build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test my-app` to execute the unit tests via [Jest](https://jestjs.io).
-
-Run `nx affected:test` to execute the unit tests affected by a change.
-
-## Running end-to-end tests
-
-Run `ng e2e my-app` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
-
-Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
-
-## Understand your workspace
-
-Run `nx graph` to see a diagram of the dependencies of your projects.
-
-## Further help
-
-Visit the [Nx Documentation](https://nx.dev/angular) to learn more.
-
-
-
-
-
-
-## ☁ Nx Cloud
-
-### Distributed Computation Caching & Distributed Task Execution
-
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-cloud-card.png"></p>
-
-Nx Cloud pairs with Nx in order to enable you to build and test code more rapidly, by up to 10 times. Even teams that are new to Nx can connect to Nx Cloud and start saving time instantly.
-
-Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
-
-Visit [Nx Cloud](https://nx.app/) to learn more.
+- [Scully Publish](https://github.com/marketplace/actions/scully-publish) 負責打包和部署 Scully site 到 GitHub Pages
+- [LINE Notify](https://github.com/marketplace/actions/line-notify) 發送部署完成的通知
