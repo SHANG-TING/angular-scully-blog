@@ -37,9 +37,10 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
-
 .angular
+.eslintcache
 
+# Scully Files
 scully.log
 scullyStats.json
 .scully
