@@ -1,8 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  ViewEncapsulation,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'asb-projects',
@@ -15,8 +11,7 @@ export class ProjectsComponent {
   recentProjects = [
     {
       name: 'Partytown',
-      description:
-        '已排除部分範例上的錯誤，目前著重於排除在 Angular 環境下的問題。',
+      description: '已排除部分範例上的錯誤，目前著重於排除在 Angular 環境下的問題。',
       image: 'https://partytown.builder.io/partytown-media.png',
       url: 'https://github.com/BuilderIO/partytown',
     },
@@ -33,13 +28,13 @@ export class ProjectsComponent {
     {
       name: '創科智盈',
       description: '創科智盈的官網。',
-      image: 'https://i.imgur.com/fyLF2oo.png',
+      image: 'https://i.imgur.com/2V3SfwV.png',
       url: 'https://inctw.com.tw',
     },
     {
       name: 'AKI Gallery',
       description: 'AKI Gallery 的官網。',
-      image: 'https://i.imgur.com/ZaWG8HX.png',
+      image: 'https://i.imgur.com/mPjQIX6.png',
       url: 'https://www.galleryaki.com',
     },
   ];
