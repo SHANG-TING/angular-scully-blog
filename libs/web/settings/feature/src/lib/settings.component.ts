@@ -17,9 +17,9 @@ export class SettingsComponent {
   settings$ = this.store.select(selectSettings);
 
   stickyHeaderModes = [
-    { value: 'auto', label: '自動顯示或隱藏 (ScrollBar)' },
-    { value: 'always', label: '總是顯示' },
-    { value: 'never', label: '總是隱藏' },
+    { value: 'auto', label: '自動固定 (ScrollBar)' },
+    { value: 'always', label: '總是固定' },
+    { value: 'never', label: '永不固定' },
   ];
 
   themes = [
