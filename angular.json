@@ -13,6 +13,7 @@
     "web-post-feature-shell": "libs/web/post/feature/shell",
     "web-projects-feature": "libs/web/projects/feature",
     "web-settings-data-access": "libs/web/settings/data-access",
+    "web-settings-feature": "libs/web/settings/feature",
     "web-shared-data-access-blog-api": "libs/web/shared/data-access/blog-api",
     "web-shared-data-access-models": "libs/web/shared/data-access/models",
     "web-shared-ui-icon": "libs/web/shared/ui/icon",

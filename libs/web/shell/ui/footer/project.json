@@ -6,7 +6,9 @@
   "targets": {
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/web/shell/ui/footer"],
+      "outputs": [
+        "coverage/libs/web/shell/ui/footer"
+      ],
       "options": {
         "jestConfig": "libs/web/shell/ui/footer/jest.config.js",
         "passWithNoTests": true
@@ -22,5 +24,8 @@
       }
     }
   },
-  "tags": ["type:ui", "scope:web"]
+  "tags": [
+    "type:ui",
+    "scope:web"
+  ]
 }

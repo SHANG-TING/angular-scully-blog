@@ -6,7 +6,9 @@
   "targets": {
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/web/home/data-access/recent-posts"],
+      "outputs": [
+        "coverage/libs/web/home/data-access/recent-posts"
+      ],
       "options": {
         "jestConfig": "libs/web/home/data-access/recent-posts/jest.config.js",
         "passWithNoTests": true
@@ -22,5 +24,8 @@
       }
     }
   },
-  "tags": ["type:data-access", "scope:web"]
+  "tags": [
+    "type:data-access",
+    "scope:web"
+  ]
 }

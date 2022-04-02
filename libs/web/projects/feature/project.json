@@ -6,7 +6,9 @@
   "targets": {
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/web/projects/feature"],
+      "outputs": [
+        "coverage/libs/web/projects/feature"
+      ],
       "options": {
         "jestConfig": "libs/web/projects/feature/jest.config.js",
         "passWithNoTests": true
@@ -22,5 +24,8 @@
       }
     }
   },
-  "tags": ["type:feature", "scope:web"]
+  "tags": [
+    "type:feature",
+    "scope:web"
+  ]
 }
