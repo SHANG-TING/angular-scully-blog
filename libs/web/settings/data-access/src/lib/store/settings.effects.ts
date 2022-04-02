@@ -1,4 +1,4 @@
-import { Injectable, Renderer2 } from '@angular/core';
+import { Injectable } from '@angular/core';
 
 import { merge } from 'rxjs';
 import { tap, withLatestFrom } from 'rxjs/operators';
@@ -7,15 +7,9 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { INIT, select, Store } from '@ngrx/store';
 
 import { LocalStorageService } from '../services/local-storage.service';
-import {
-  actionSettingsChangeStickyHeader,
-  actionSettingsChangeTheme,
-} from './settings.actions';
+import { actionSettingsChangeStickyHeader, actionSettingsChangeTheme } from './settings.actions';
 import { SettingsState } from './settings.reducer';
-import {
-  selectEffectiveTheme,
-  selectSettingsState,
-} from './settings.selectors';
+import { selectEffectiveTheme, selectSettings } from './settings.selectors';
 
 const SETTINGS_KEY = 'SETTINGS';
 
@@ -27,10 +21,8 @@ export class SettingEffects {
     () =>
       this.actions$.pipe(
         ofType(actionSettingsChangeTheme, actionSettingsChangeStickyHeader),
-        withLatestFrom(this.store.pipe(select(selectSettingsState))),
-        tap(([, settings]) =>
-          this.localStorageService.setItem(SETTINGS_KEY, settings)
-        )
+        withLatestFrom(this.store.pipe(select(selectSettings))),
+        tap(([, settings]) => this.localStorageService.setItem(SETTINGS_KEY, settings))
       ),
     { dispatch: false }
   );

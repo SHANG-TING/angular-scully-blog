@@ -6,15 +6,9 @@
     <div>
       <a aria-label="Neil's Notepad" [routerLink]="['/']">
         <div class="flex items-center justify-between">
-          <svg-icon
-            key="logo"
-            class="text-black dark:text-white !w-10 !h-10 mr-3"
-          >
-          </svg-icon>
+          <svg-icon key="logo" class="text-black dark:text-white !w-10 !h-10 mr-3"> </svg-icon>
 
-          <div class="hidden text-2xl font-semibold sm:block">
-            Neil's Notepad
-          </div>
+          <div class="hidden text-2xl font-semibold sm:block">Neil's Notepad</div>
         </div>
       </a>
     </div>
@@ -23,12 +17,27 @@
       <div class="hidden sm:block">
         <a
           *ngFor="let item of navLinks"
-          class="p-1 font-medium text-gray-900 dark:text-gray-100 sm:p-4"
+          class="p-1 font-medium text-gray-900 dark:text-gray-100 sm:p-2 md:p-4 hover:text-primary-600 dark:hover:text-primary-400"
           [routerLink]="[item.href]"
+          [routerLinkActive]="'text-primary-600 dark:text-primary-400'"
         >
           {{ item.title }}
         </a>
       </div>
+
+      <a
+        class="h-8 w-8 sm:ml-4 hidden sm:flex items-center hover:text-primary-600 dark:hover:text-primary-400"
+        aria-label="Redirect to Settings"
+        [routerLink]="['/settings']"
+        [routerLinkActive]="'text-primary-600 dark:text-primary-400'"
+      >
+        <svg-icon
+          key="settings"
+          class="text-inherit !w-7 !h-7 transition-transform transform-gpu active:rotate-[360deg]"
+        >
+        </svg-icon>
+      </a>
+
       <button
         aria-label="Toggle Dark Mode"
         type="button"
@@ -41,6 +50,7 @@
         >
         </svg-icon>
       </button>
+
       <div class="sm:hidden">
         <button
           type="button"
@@ -49,7 +59,7 @@
           (click)="toggleMenu()"
         >
           <svg-icon
-            [key]="(menuShow$ | async) ? 'times' : 'bar'"
+            [key]="(menuShow$ | async) ? 'times' : 'bars'"
             class="text-black dark:text-white !w-8 !h-8"
           >
           </svg-icon>
@@ -74,8 +84,18 @@
               <a
                 class="text-2xl font-bold tracking-widest text-gray-900 dark:text-gray-100 mono-type"
                 [routerLink]="[item.href]"
+                [routerLinkActive]="'text-primary-600 dark:text-primary-400'"
                 (click)="toggleMenu()"
                 >{{ item.title }} →</a
+              >
+            </div>
+            <div class="px-12 py-4">
+              <a
+                class="text-2xl font-bold tracking-widest text-gray-900 dark:text-gray-100 mono-type"
+                [routerLink]="['/settings']"
+                [routerLinkActive]="'text-primary-600 dark:text-primary-400'"
+                (click)="toggleMenu()"
+                >設定 →</a
               >
             </div>
           </nav>

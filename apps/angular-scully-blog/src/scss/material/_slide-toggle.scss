@@ -1,0 +1,17 @@
+html.dark {
+  .mat-select-panel {
+    @apply bg-gray-800;
+
+    .mat-option.mat-selected:not(.mat-option-multiple) {
+      @apply bg-gray-700;
+    }
+  }
+
+  .mat-option {
+    @apply text-primary-700;
+  }
+
+  .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+    @apply text-primary-500;
+  }
+}

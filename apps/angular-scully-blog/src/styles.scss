@@ -4,13 +4,13 @@
 
 @import './scss/tailwind';
 @import './scss/prism';
+@import './scss/material';
 
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap');
 
 body {
-  font-family: 'Helvetica', 'Arial', 'Noto Sans TC', '黑體-繁', '微軟正黑體',
-    sans-serif !important;
+  font-family: 'Helvetica', 'Arial', 'Noto Sans TC', '黑體-繁', '微軟正黑體', sans-serif !important;
 }
 
 /* https://stackoverflow.com/questions/61083813/how-to-avoid-internal-autofill-selected-style-to-be-applied */

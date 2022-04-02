@@ -9,28 +9,27 @@ export const webShellRoutes: Route[] = [
     children: [
       {
         path: '',
-        loadChildren: async () =>
-          (await import('@web/home/feature')).HomeModule,
+        loadChildren: async () => (await import('@web/home/feature')).HomeModule,
       },
       {
         path: 'posts',
-        loadChildren: async () =>
-          (await import('@web/post/feature/shell')).PostShellModule,
+        loadChildren: async () => (await import('@web/post/feature/shell')).PostShellModule,
       },
       {
         path: 'tags',
-        loadChildren: async () =>
-          (await import('@web/tag/feature/shell')).TagShellModule,
+        loadChildren: async () => (await import('@web/tag/feature/shell')).TagShellModule,
       },
       {
         path: 'about',
-        loadChildren: async () =>
-          (await import('@web/about/feature')).AboutModule,
+        loadChildren: async () => (await import('@web/about/feature')).AboutModule,
       },
       {
         path: 'projects',
-        loadChildren: async () =>
-          (await import('@web/projects/feature')).ProjectsModule,
+        loadChildren: async () => (await import('@web/projects/feature')).ProjectsModule,
+      },
+      {
+        path: 'settings',
+        loadChildren: async () => (await import('@web/settings/feature')).SettingsModule,
       },
       {
         path: '**',
