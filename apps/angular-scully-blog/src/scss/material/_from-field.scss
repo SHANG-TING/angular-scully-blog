@@ -1,0 +1,9 @@
+html.dark {
+  .mat-form-field-underline {
+    @apply bg-gray-100;
+  }
+}
+
+.mat-form-field-underline {
+  @apply bg-gray-700;
+}

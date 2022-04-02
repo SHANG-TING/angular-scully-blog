@@ -8,10 +8,10 @@ html.dark {
   }
 
   .mat-option {
-    @apply text-primary-700;
+    @apply text-gray-500;
   }
 
   .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
-    @apply text-primary-500;
+    @apply text-gray-100;
   }
 }

@@ -37,4 +37,5 @@ html.dark {
   @include mat.slide-toggle-color($dark-theme);
 }
 
+@import './from-field';
 @import './_slide-toggle';
