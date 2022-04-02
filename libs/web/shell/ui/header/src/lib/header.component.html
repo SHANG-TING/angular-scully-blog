@@ -64,43 +64,43 @@
           >
           </svg-icon>
         </button>
-
-        <div
-          class="fixed top-16 right-0 z-10 h-full w-full transform bg-gray-200 opacity-95 duration-300 ease-in-out dark:bg-gray-800"
-          [ngClass]="{
-            'translate-x-full': (menuShow$ | async) === false,
-            'translate-x-0': (menuShow$ | async) === true
-          }"
-        >
-          <button
-            type="button"
-            aria-label="toggle modal"
-            class="fixed h-full w-full cursor-auto focus:outline-none"
-            (click)="toggleMenu()"
-          ></button>
-
-          <nav class="fixed h-full mt-8">
-            <div *ngFor="let item of navLinks" class="px-12 py-4">
-              <a
-                class="text-2xl font-bold tracking-widest text-gray-900 dark:text-gray-100 mono-type"
-                [routerLink]="[item.href]"
-                [routerLinkActive]="'text-primary-600 dark:text-primary-400'"
-                (click)="toggleMenu()"
-                >{{ item.title }} →</a
-              >
-            </div>
-            <div class="px-12 py-4">
-              <a
-                class="text-2xl font-bold tracking-widest text-gray-900 dark:text-gray-100 mono-type"
-                [routerLink]="['/settings']"
-                [routerLinkActive]="'text-primary-600 dark:text-primary-400'"
-                (click)="toggleMenu()"
-                >設定 →</a
-              >
-            </div>
-          </nav>
-        </div>
       </div>
     </div>
   </div>
+</div>
+
+<div
+  class="fixed top-16 right-0 z-10 h-full w-full transform bg-gray-200 opacity-95 duration-300 ease-in-out dark:bg-gray-800"
+  [ngClass]="{
+    'translate-x-full': (menuShow$ | async) === false,
+    'translate-x-0': (menuShow$ | async) === true
+  }"
+>
+  <button
+    type="button"
+    aria-label="toggle modal"
+    class="fixed h-full w-full cursor-auto focus:outline-none"
+    (click)="toggleMenu()"
+  ></button>
+
+  <nav class="fixed h-full mt-8">
+    <div *ngFor="let item of navLinks" class="px-12 py-4">
+      <a
+        class="text-2xl font-bold tracking-widest text-gray-900 dark:text-gray-100 mono-type"
+        [routerLink]="[item.href]"
+        [routerLinkActive]="'text-primary-600 dark:text-primary-400'"
+        (click)="toggleMenu()"
+        >{{ item.title }} →</a
+      >
+    </div>
+    <div class="px-12 py-4">
+      <a
+        class="text-2xl font-bold tracking-widest text-gray-900 dark:text-gray-100 mono-type"
+        [routerLink]="['/settings']"
+        [routerLinkActive]="'text-primary-600 dark:text-primary-400'"
+        (click)="toggleMenu()"
+        >設定 →</a
+      >
+    </div>
+  </nav>
 </div>
