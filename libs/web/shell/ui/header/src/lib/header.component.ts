@@ -6,15 +6,16 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 
-import { BehaviorSubject, take } from 'rxjs';
+import { BehaviorSubject, fromEvent, of, take } from 'rxjs';
+import { distinctUntilChanged, map, pairwise, switchMap } from 'rxjs/operators';
 
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { Store } from '@ngrx/store';
 import {
   actionSettingsChangeTheme,
   selectEffectiveTheme,
   selectSettingsStickyHeader,
 } from '@web/settings/data-access';
-import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 
 @UntilDestroy()
 @Component({
@@ -29,7 +30,19 @@ import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 })
 export class HeaderComponent implements OnInit {
   menuShow$ = new BehaviorSubject(false);
-  stickyHeader$ = this.store.select(selectSettingsStickyHeader);
+  stickyHeader$ = this.store.select(selectSettingsStickyHeader).pipe(
+    switchMap((state) => {
+      if (state === 'always') return of(true);
+      if (state === 'never') return of(false);
+      return fromEvent(window, 'scroll').pipe(
+        map(() => window.scrollY),
+        pairwise(),
+        map(([prevScrollY, currScrollY]) => currScrollY - prevScrollY),
+        map((deltaScrollY) => deltaScrollY < 0),
+        distinctUntilChanged()
+      );
+    })
+  );
   theme$ = this.store.select(selectEffectiveTheme);
 
   navLinks = [
@@ -37,7 +50,7 @@ export class HeaderComponent implements OnInit {
     { href: '/tags', title: '標籤' },
     { href: '/projects', title: '作品' },
     { href: '/about', title: '關於我' },
-  ]
+  ];
 
   constructor(private store: Store, private renderer: Renderer2) {}
 

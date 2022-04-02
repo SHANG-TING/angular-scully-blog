@@ -9,6 +9,12 @@ import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/
 })
 export class ProjectsComponent {
   recentProjects = [
+    // {
+    //   name: `Neil's Notepad (Angular Scully Blog)`,
+    //   description: '',
+    //   image: '',
+    //   url: '',
+    // },
     {
       name: 'Partytown',
       description: '已排除部分範例上的錯誤，目前著重於排除在 Angular 環境下的問題。',
