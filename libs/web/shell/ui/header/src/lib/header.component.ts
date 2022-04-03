@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 
 import { BehaviorSubject, fromEvent, of, take } from 'rxjs';
-import { distinctUntilChanged, map, pairwise, switchMap } from 'rxjs/operators';
+import { distinctUntilChanged, filter, map, pairwise, startWith, switchMap } from 'rxjs/operators';
 
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { Store } from '@ngrx/store';
@@ -16,6 +16,8 @@ import {
   selectEffectiveTheme,
   selectSettingsStickyHeader,
 } from '@web/settings/data-access';
+
+const HEADER_HEIGHT = 65;
 
 @UntilDestroy()
 @Component({
@@ -37,10 +39,12 @@ export class HeaderComponent implements OnInit {
       if (state === 'never') return of(false);
       return fromEvent(window, 'scroll').pipe(
         map(() => window.scrollY),
+        filter((scrollY) => scrollY > HEADER_HEIGHT),
         pairwise(),
         map(([prevScrollY, currScrollY]) => currScrollY - prevScrollY),
         map((deltaScrollY) => deltaScrollY < 0),
-        distinctUntilChanged()
+        distinctUntilChanged(),
+        startWith(true)
       );
     })
   );
