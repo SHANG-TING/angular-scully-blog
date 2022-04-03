@@ -1,6 +1,10 @@
 <div
   class="border-b border-slate-900/10 dark:border-slate-300/10 w-full"
-  [ngClass]="{ 'backdrop-blur fixed': stickyHeader$ | async }"
+  [ngClass]="{
+    'fixed transition-transform transform-gpu translate-y-[-100%]':
+      (stickyHeaderStatus$ | async) !== 'never',
+    'backdrop-blur !translate-y-0': (isStickyHeader$ | async)
+  }"
 >
   <div class="flex items-center justify-between px-4 sm:px-6 py-3">
     <div>

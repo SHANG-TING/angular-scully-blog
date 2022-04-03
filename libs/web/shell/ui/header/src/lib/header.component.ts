@@ -30,7 +30,8 @@ import {
 })
 export class HeaderComponent implements OnInit {
   menuShow$ = new BehaviorSubject(false);
-  stickyHeader$ = this.store.select(selectSettingsStickyHeader).pipe(
+  stickyHeaderStatus$ = this.store.select(selectSettingsStickyHeader);
+  isStickyHeader$ = this.stickyHeaderStatus$.pipe(
     switchMap((state) => {
       if (state === 'always') return of(true);
       if (state === 'never') return of(false);
