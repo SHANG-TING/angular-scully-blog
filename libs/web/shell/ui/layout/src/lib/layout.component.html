@@ -54,12 +54,14 @@
           <div
             class="flex flex-col transition-all duration-200 ease-out xl:shadow-lg shadow-cyan-100/50 dark:shadow-cyan-700/50 xl:rounded-lg bg-white dark:bg-gray-900 overflow-hidden"
           >
-            <img
-              alt="avatar"
-              src="https://i.imgur.com/4oWSVSC.jpg"
-              class="w-full"
-              srcset="https://i.imgur.com/4oWSVSC.jpg 1x, https://i.imgur.com/bUEkmnh.jpeg 2x"
-            />
+            <a aria-label="Redirect to About" [routerLink]="['/about']">
+              <img
+                alt="avatar"
+                src="https://i.imgur.com/4oWSVSC.jpg"
+                class="w-full"
+                srcset="https://i.imgur.com/4oWSVSC.jpg 1x, https://i.imgur.com/bUEkmnh.jpeg 2x"
+              />
+            </a>
             <div class="hidden xl:block xl:px-6 py-4">
               <h1 class="text-xl font-semibold text-gray-800 dark:text-white">
                 Shang Ting (Neil) Xie
