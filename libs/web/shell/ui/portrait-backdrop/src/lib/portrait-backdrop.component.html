@@ -1,0 +1,9 @@
+<canvas #canvas></canvas>
+
+<div class="max-w-3xl px-3 xl:px-0 mx-auto sm:px-6 xl:max-w-5xl absolute inset-0">
+  <div class="flex flex-col justify-between min-h-screen">
+    <main class="mb-auto" (waResizeObserver)="onResize($event)">
+      <ng-content></ng-content>
+    </main>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+{
+  "projectType": "library",
+  "root": "libs/web/shell/ui/portrait-backdrop",
+  "sourceRoot": "libs/web/shell/ui/portrait-backdrop/src",
+  "prefix": "asb",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": [
+        "coverage/libs/web/shell/ui/portrait-backdrop"
+      ],
+      "options": {
+        "jestConfig": "libs/web/shell/ui/portrait-backdrop/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/web/shell/ui/portrait-backdrop/src/**/*.ts",
+          "libs/web/shell/ui/portrait-backdrop/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": [
+    "type:ui",
+    "scope:web"
+  ]
+}
