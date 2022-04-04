@@ -17,7 +17,7 @@ import {
   selectSettingsStickyHeader,
 } from '@web/settings/data-access';
 
-const HEADER_HEIGHT = 65;
+const HEADER_HEIGHT = 64;
 
 @UntilDestroy()
 @Component({
@@ -27,7 +27,7 @@ const HEADER_HEIGHT = 65;
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
   host: {
-    class: 'block h-[72px]',
+    class: 'block w-full',
   },
 })
 export class HeaderComponent implements OnInit {
