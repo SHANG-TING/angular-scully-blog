@@ -28,16 +28,15 @@ const HEADER_HEIGHT = 64;
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
   host: {
-    class: 'block w-full',
-    '[class.fixed]': 'isRoot',
-    '[class.z-50]': 'isRoot',
-    '[class.h-16]': '!isRoot',
+    class: 'block w-full z-50',
+    '[class.fixed]': 'stickyHeaderStatus !== "never" && isRoot',
+    '[class.absolute]': 'stickyHeaderStatus === "never" && isRoot',
+    '[class.h-16]': 'stickyHeaderStatus !== "never" && !isRoot',
   },
 })
 export class HeaderComponent implements OnInit {
   menuShow$ = new BehaviorSubject(false);
-  stickyHeaderStatus$ = this.store.select(selectSettingsStickyHeader);
-  isStickyHeader$ = this.stickyHeaderStatus$.pipe(
+  isStickyHeader$ = this.store.select(selectSettingsStickyHeader).pipe(
     switchMap((state) => {
       if (state === 'always') return of(true);
       if (state === 'never') return of(false);
@@ -61,6 +60,8 @@ export class HeaderComponent implements OnInit {
     { href: '/about', title: '關於我' },
   ];
 
+  private _stickyHeaderStatus!: 'always' | 'never' | 'auto';
+
   constructor(private store: Store, private renderer: Renderer2, private router: Router) {}
 
   ngOnInit() {
@@ -74,6 +75,13 @@ export class HeaderComponent implements OnInit {
           this.renderer.removeClass(document.body, 'overflow-hidden');
         }
       });
+
+    this.store
+      .select(selectSettingsStickyHeader)
+      .pipe(untilDestroyed(this))
+      .subscribe((stickyHeaderStatus) => {
+        this._stickyHeaderStatus = stickyHeaderStatus;
+      });
   }
 
   get isRoot() {
@@ -83,6 +91,10 @@ export class HeaderComponent implements OnInit {
       queryParams: 'ignored',
       fragment: 'ignored',
     });
+  }
+
+  get stickyHeaderStatus() {
+    return this._stickyHeaderStatus;
   }
 
   toggleMenu() {

@@ -1,8 +1,7 @@
 <div
   class="border-b border-slate-900/10 dark:border-slate-300/10 w-full"
   [ngClass]="{
-    'fixed transition-transform transform-gpu translate-y-[-100%]':
-      (stickyHeaderStatus$ | async) !== 'never',
+    'fixed transition-transform transform-gpu translate-y-[-100%]': stickyHeaderStatus !== 'never',
     'backdrop-blur !translate-y-0': (isStickyHeader$ | async)
   }"
 >
