@@ -16,6 +16,7 @@
     "web-settings-feature": "libs/web/settings/feature",
     "web-shared-data-access-blog-api": "libs/web/shared/data-access/blog-api",
     "web-shared-data-access-models": "libs/web/shared/data-access/models",
+    "web-shared-ui-comments": "libs/web/shared/ui/comments",
     "web-shared-ui-icon": "libs/web/shared/ui/icon",
     "web-shell-feature": "libs/web/shell/feature",
     "web-shell-ui-footer": "libs/web/shell/ui/footer",

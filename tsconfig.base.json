@@ -29,6 +29,7 @@
       "@web/settings/feature": ["libs/web/settings/feature/src/index.ts"],
       "@web/shared/data-access/blog-api": ["libs/web/shared/data-access/blog-api/src/index.ts"],
       "@web/shared/data-access/models": ["libs/web/shared/data-access/models/src/index.ts"],
+      "@web/shared/ui/comments": ["libs/web/shared/ui/comments/src/index.ts"],
       "@web/shared/ui/icon": ["libs/web/shared/ui/icon/src/index.ts"],
       "@web/shell/feature": ["libs/web/shell/feature/src/index.ts"],
       "@web/shell/ui/footer": ["libs/web/shell/ui/footer/src/index.ts"],

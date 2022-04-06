@@ -1,0 +1,31 @@
+{
+  "projectType": "library",
+  "root": "libs/web/shared/ui/comments",
+  "sourceRoot": "libs/web/shared/ui/comments/src",
+  "prefix": "asb",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": [
+        "coverage/libs/web/shared/ui/comments"
+      ],
+      "options": {
+        "jestConfig": "libs/web/shared/ui/comments/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/web/shared/ui/comments/src/**/*.ts",
+          "libs/web/shared/ui/comments/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": [
+    "type:ui",
+    "scope:web"
+  ]
+}
