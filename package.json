@@ -8,7 +8,7 @@
     "start": "nx serve",
     "build": "nx build",
     "test": "nx test",
-    "scully": "npx scully --cf scully.angular-scully-blog.config.ts",
+    "scully": "npx scully --cf apps/angular-scully-blog/scully.angular-scully-blog.config.ts",
     "scully:serve": "npx scully serve --",
     "prepare": "husky install"
   },
