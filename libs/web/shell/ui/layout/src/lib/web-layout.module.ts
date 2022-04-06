@@ -4,12 +4,12 @@ import { RouterModule } from '@angular/router';
 
 import { FooterModule } from '@web/shell/ui/footer';
 import { HeaderModule } from '@web/shell/ui/header';
-import { PortraitBackdropModule } from '@web/shell/ui/portrait-backdrop';
+import { SummaryModule } from '@web/shell/ui/summary';
 
 import { LayoutComponent } from './layout.component';
 
 @NgModule({
-  imports: [CommonModule, RouterModule, HeaderModule, PortraitBackdropModule, FooterModule],
+  imports: [CommonModule, RouterModule, HeaderModule, SummaryModule, FooterModule],
   declarations: [LayoutComponent],
 })
 export class WebLayoutModule {}

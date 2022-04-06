@@ -16,6 +16,7 @@ import {
   selectEffectiveTheme,
   selectSettingsStickyHeader,
 } from '@web/settings/data-access';
+import { Router } from '@angular/router';
 
 const HEADER_HEIGHT = 64;
 
@@ -28,6 +29,9 @@ const HEADER_HEIGHT = 64;
   encapsulation: ViewEncapsulation.None,
   host: {
     class: 'block w-full',
+    '[class.fixed]': 'isRoot',
+    '[class.z-50]': 'isRoot',
+    '[class.h-16]': '!isRoot',
   },
 })
 export class HeaderComponent implements OnInit {
@@ -57,7 +61,7 @@ export class HeaderComponent implements OnInit {
     { href: '/about', title: '關於我' },
   ];
 
-  constructor(private store: Store, private renderer: Renderer2) {}
+  constructor(private store: Store, private renderer: Renderer2, private router: Router) {}
 
   ngOnInit() {
     this.menuShow$
@@ -70,6 +74,15 @@ export class HeaderComponent implements OnInit {
           this.renderer.removeClass(document.body, 'overflow-hidden');
         }
       });
+  }
+
+  get isRoot() {
+    return this.router.isActive('/', {
+      paths: 'exact',
+      matrixParams: 'ignored',
+      queryParams: 'ignored',
+      fragment: 'ignored',
+    });
   }
 
   toggleMenu() {

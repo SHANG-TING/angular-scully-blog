@@ -1,5 +1,5 @@
 module.exports = {
-  displayName: 'web-shell-ui-portrait-backdrop',
+  displayName: 'web-shared-ui-portrait-backdrop',
   preset: '../../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
@@ -8,7 +8,7 @@ module.exports = {
       stringifyContentPathRegex: '\\.(html|svg)$',
     },
   },
-  coverageDirectory: '../../../../../coverage/libs/web/shell/ui/portrait-backdrop',
+  coverageDirectory: '../../../../../coverage/libs/web/shared/ui/portrait-backdrop',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': 'jest-preset-angular',
   },
