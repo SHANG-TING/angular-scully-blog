@@ -8,20 +8,24 @@
 
 ## 使用技術
 
-- [Angular 12][angular]
+- [Angular 13][angular]
 - [Nx Workspace][nx]
 - [ngneat][] 主要使用 `ngneat/svg-icon` 和 `ngneat/until-destroy`
 - [ngrx][ngrx] and [ngrx/component-store][component-store]
+- [Angular Material][angular-material] UI component: select.
 - [TailwindCSS][tailwind]
-- [Scully][scully] 這是一套基於 Angular 的 Server Side Generator
+- [Scully][scully] 基於 Angular 的 Server Side Generator
+- [utterances][utterances] 基於 GitHub issues 的 component
 
 [angular]: https://angular.io/
 [nx]: https://nx.dev/
 [ngrx]: https://ngrx.io/
 [component-store]: https://ngrx.io/guide/component-store
+[angular-material]: https://material.angular.io/
 [tailwind]: https://tailwindcss.com/
 [ngneat]: https://github.com/ngneat
 [scully]: https://scully.io/
+[utterances]: https://utteranc.es/
 
 ## 專案架構
 
@@ -37,7 +41,8 @@
             │   └── ui
             │       └── layout (angular:lib)
             ├── settings (dir)
-            │   └── data-access (workspace:lib)
+            │   ├── data-access (workspace:lib)
+            │   └── feature (angular:lib SettingsComponent)
             ├── post (dir)
             │   ├── data-access (angular:lib, service, state management)
             │   └── features
