@@ -49,8 +49,8 @@ class Line {
     this.spring = e.spring + 0.1 * Math.random() - 0.05;
     this.friction = E.friction + 0.01 * Math.random() - 0.005;
     this.nodes = [];
-    for (let t, n = 0; n < E.size; n++) {
-      t = new Node();
+    for (let i = 0; i < E.size; i++) {
+      const t = new Node();
       t.x = this.pos.x;
       t.y = this.pos.y;
       this.nodes.push(t);
@@ -65,7 +65,7 @@ class Line {
     node.vy += (this.pos.y - node.y) * spring;
 
     let prevNode: Node;
-    for (let i = 0, a = this.nodes.length; i < a; i++) {
+    for (let i = 0; i < this.nodes.length; i++) {
       node = this.nodes[i];
 
       if (0 < i) {
@@ -186,8 +186,8 @@ export class PortraitBackdropComponent implements AfterViewInit {
       });
 
     this.lines = [];
-    for (let e = 0; e < E.trails; e++) {
-      this.lines.push(new Line({ spring: 0.45 + (e / E.trails) * 0.025 }, this.pos));
+    for (let i = 0; i < E.trails; i++) {
+      this.lines.push(new Line({ spring: 0.45 + (i / E.trails) * 0.025 }, this.pos));
     }
 
     // render lines
@@ -201,8 +201,8 @@ export class PortraitBackdropComponent implements AfterViewInit {
         this.ctx.strokeStyle = 'hsla(' + Math.round(this.wave.update()) + ',90%,50%,0.25)';
         this.ctx.lineWidth = 1;
 
-        for (let t = 0; t < E.trails; t++) {
-          const line = this.lines[t];
+        for (let i = 0; i < E.trails; i++) {
+          const line = this.lines[i];
           line.update();
           line.draw(this.ctx);
         }
