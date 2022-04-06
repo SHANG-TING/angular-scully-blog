@@ -4,18 +4,12 @@
   <article *ngIf="post$ | async as post">
     <div>
       <header>
-        <div
-          class="space-y-1 border-b border-gray-200 pb-10 text-center dark:border-gray-700"
-        >
+        <div class="space-y-1 border-b border-gray-200 pb-10 text-center dark:border-gray-700">
           <dl>
             <div>
               <dt class="sr-only">發布於</dt>
-              <dd
-                class="text-base font-medium leading-6 text-gray-500 dark:text-gray-400"
-              >
-                <time [attr.datetime]="post.date | date: 'full'">{{
-                  post.date | date
-                }}</time>
+              <dd class="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
+                <time [attr.datetime]="post.date | date: 'full'">{{ post.date | date }}</time>
               </dd>
             </div>
           </dl>
@@ -40,13 +34,10 @@
           </div>
         </div>
         <div id="comment">
-          <div class="pt-6 pb-6 text-center text-gray-700 dark:text-gray-300">
-            <button>Load Comments</button>
-            <div class="giscus" id="comments-container"></div>
-          </div>
+          <asb-utterances></asb-utterances>
         </div>
         <footer>
-          <div
+          <!-- <div
             class="flex flex-col text-sm font-medium sm:flex-row sm:justify-between sm:text-base"
           >
             <div class="pt-4 xl:pt-8">
@@ -56,7 +47,7 @@
                 >← Introducing Multi-part Posts with Nested Routing</a
               >
             </div>
-          </div>
+          </div> -->
         </footer>
       </div>
     </div>

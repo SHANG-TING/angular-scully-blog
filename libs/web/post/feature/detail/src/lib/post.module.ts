@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { ScullyLibModule } from '@scullyio/ng-lib';
+import { CommentsModule } from '@web/shared/ui/comments';
 
 import { PostComponent } from './post.component';
 
@@ -11,6 +12,7 @@ import { PostComponent } from './post.component';
     CommonModule,
     ScullyLibModule,
     RouterModule.forChild([{ path: '', component: PostComponent }]),
+    CommentsModule,
   ],
   declarations: [PostComponent],
 })
