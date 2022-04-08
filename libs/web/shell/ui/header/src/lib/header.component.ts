@@ -18,7 +18,7 @@ import {
 } from '@web/settings/data-access';
 import { Router } from '@angular/router';
 
-const HEADER_HEIGHT = 64;
+export const HEADER_HEIGHT = 64;
 
 @UntilDestroy()
 @Component({
