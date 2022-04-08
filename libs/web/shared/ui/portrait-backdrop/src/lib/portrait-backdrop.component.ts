@@ -1,3 +1,4 @@
+/* eslint-disable @angular-eslint/no-host-metadata-property */
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import {
   AfterViewInit,
@@ -131,6 +132,9 @@ const E = {
   templateUrl: './portrait-backdrop.component.html',
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    class: 'block relative',
+  },
 })
 export class PortraitBackdropComponent implements AfterViewInit {
   @ViewChild('canvas', { static: true }) canvas!: ElementRef<HTMLCanvasElement>;
