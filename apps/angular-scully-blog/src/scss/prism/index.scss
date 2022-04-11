@@ -1,6 +1,10 @@
 @import './plugins';
 @import './themes';
 
+.code-toolbar {
+  z-index: -1;
+}
+
 .toolbar {
   .toolbar-item + .toolbar-item {
     margin-left: 0.5rem;
